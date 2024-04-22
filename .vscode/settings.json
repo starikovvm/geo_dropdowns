@@ -1,3 +1,12 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.19.5"
+  "dart.flutterSdkPath": ".fvm/versions/3.19.5",
+  "emeraldwalk.runonsave": {
+    "commands": [
+        {
+            "match": "assets/translations/.*\\.json",
+            "cmd": "fvm flutter pub run easy_localization:generate -S assets/translations -f json -O lib/generated -o codegen_loader.g.dart; fvm flutter pub run easy_localization:generate -S assets/translations -f keys -O lib/generated -o locale_keys.g.dart"
+        }
+    ]
+  },
+  "cmake.configureOnOpen": false
 }

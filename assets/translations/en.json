@@ -1,0 +1,14 @@
+{
+    "homeSelectCountry": "Select your country",
+    "homeSelectState": "Select your state",
+    "homeSubmit": "Submit",
+    "homeSubmitAlertTitle": "Thank you!",
+    "homeSubmitAlertText": "You have selected {country} as your country and {state} as your state. Thank you for using this app. Have a nice day! :)",
+
+    "errorUnknown": "An unknown error occurred",
+    "errorParsing": "An error occurred while parsing the data",
+    "errorNetwork": "A network error occurred",
+    "retry": "Retry",
+
+    "ok": "OK"
+}
