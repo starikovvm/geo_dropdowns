@@ -1,7 +1,23 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:geo_dropdowns/features/home/home_widget.dart';
+import 'package:geo_dropdowns/repositories/repositories_injector.dart';
+import 'package:geo_dropdowns/ui/app_theme.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    RepositoriesInjector(
+      child: EasyLocalization(
+        supportedLocales: const [Locale('en')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        child: const MainApp(),
+      ),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -9,12 +25,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      theme: appThemeData,
+      home: const HomeWidget(),
     );
   }
 }
